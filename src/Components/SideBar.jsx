@@ -17,10 +17,11 @@ export const SideBar = () => {
   const handleChange = (event) => {
     setQuery(event.target.value);
   };
-
   useEffect(() => {
-    dispatch(getGym(query));
+    dispatch(getGym(`?state=${query ? query : "Delhi"}`));
   }, [dispatch, query]);
+
+  console.log("q", query);
 
   return (
     <Box width="300px" p="2rem">
@@ -50,7 +51,7 @@ export const SideBar = () => {
             label="Age"
             onChange={handleChange}
           >
-            <MenuItem value={"New delhi"}>New delhi</MenuItem>
+            <MenuItem value={"New Delhi"}>New delhi</MenuItem>
             <MenuItem value={"Ghaziabad"}>Ghaziabad</MenuItem>
             <MenuItem value={"Greater Noida"}>Greater Noida</MenuItem>
             <MenuItem value={"Noida"}>Noida</MenuItem>
